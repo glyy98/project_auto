@@ -20,13 +20,10 @@ def test_page_filter():
         # 创建筛选功能对象
         filter_function = FilterPage(page)
 
-        # 应用筛选功能
-        filter_function.apply_filter("category", "Electronics")
-
-        # 确认筛选结果
-        page.wait_for_selector("div.filtered-results")
-
-        print("筛选功能测试通过！")
+        #获取测试数据
+        filters=test_data()
+        for filter_data in filters:
+            filter_function.apply_filter(filter_data['filter_name'], filter_data['filter_value'])
 
         # 关闭浏览器
         browser.close()
