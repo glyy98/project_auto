@@ -7,7 +7,7 @@ class FilterPage:
         
     def apply_filter(self,filter_name:str,filter_value:str):
         self.page.get_by_text(filter_name).click() #点击筛选框
-        self.page.get_by_text(filter_value).click()  #选择具体的选项
-
-
-      
+        #选择具体的选项,li:has-text(""),查找列表中，值为filter_value的
+        self.page.locator(f'li:has-text("{filter_value}")').click()
+        
+    
